@@ -1,4 +1,4 @@
-export class CreateCarDto {
+export class CreateCarRequest {
     name: string;
     ps: number;
 }
