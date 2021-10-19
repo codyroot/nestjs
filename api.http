@@ -1,9 +1,16 @@
-GET http://localhost:5000 HTTP/1.1
+### GET
+GET http://localhost:5000/basis HTTP/1.1
 yope: myYope
+hurra: hip
 
 
-###
-POST  http://localhost:5000 HTTP/1.1
+### GET mit express Response
+
+GET http://localhost:5000/basis/custom HTTP/1.1
+
+
+### POST
+POST  http://localhost:5000/basis HTTP/1.1
 content-type: application/json
 
 {
