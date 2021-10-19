@@ -6,6 +6,7 @@ import {
     Headers,
     HttpCode,
     HttpStatus,
+    Inject,
     Param,
     Post,
     Redirect,
