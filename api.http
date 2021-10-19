@@ -4,9 +4,18 @@ yope: myYope
 hurra: hip
 
 
-### GET mit express Response
+### GET async
+GET http://localhost:5000/basis/async HTTP/1.1
 
+
+### GET by id
+GET http://localhost:5000/basis/car/17 HTTP/1.1
+
+
+
+### GET mit express Response
 GET http://localhost:5000/basis/custom HTTP/1.1
+
 
 
 ### POST
@@ -17,3 +26,8 @@ content-type: application/json
     "name": "HundeEy",
     "ps": 265
 }
+
+
+### Redirect
+GET  http://localhost:5000/basis/redirect HTTP/1.1
+content-type: application/json

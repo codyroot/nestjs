@@ -6,11 +6,12 @@ import {
     Headers,
     HttpCode,
     HttpStatus,
+    Param,
     Post,
-    Req,
+    Redirect,
     Res,
 } from "@nestjs/common";
-import { Request, Response, response } from "express";
+import { Response } from "express";
 import { IncomingHttpHeaders } from "http";
 import { Car, CreateCarRequest } from "../models/car";
 import { BasisService } from "./basis.service";
@@ -30,6 +31,14 @@ export class BasisController {
         return this.service.getCar();
     }
 
+    @Get("/car/:id")
+    getCarId(@Param("id") id: string): Car {
+        return {
+            ...this.service.getCar(),
+            id,
+        };
+    }
+
     @Post()
     @HttpCode(HttpStatus.CREATED)
     createCar(@Body() car: CreateCarRequest): Car {
@@ -41,10 +50,20 @@ export class BasisController {
     }
 
     @Get("/custom")
-    @HttpCode(HttpStatus.OK)
     getCarCustom(@Res({ passthrough: false }) response: Response) {
         response
             .status(HttpStatus.NON_AUTHORITATIVE_INFORMATION)
             .send(this.service.getCar());
+    }
+
+    @Get("/redirect")
+    @Redirect("http://localhost:5000/basis")
+    redirect() {
+        console.log("redirect");
+    }
+
+    @Get("/async")
+    async getAsync(): Promise<Car> {
+        return Promise.resolve(this.service.getCar());
     }
 }
