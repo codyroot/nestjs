@@ -8,3 +8,12 @@ export class AddHeaderMiddleware implements NestMiddleware {
         next();
     }
 }
+
+export function addHeaderFunctionalMiddleware(
+    req: Request,
+    res: Response,
+    next: NextFunction,
+) {
+    res.append("Middleware_Functional", "it works");
+    next();
+}
