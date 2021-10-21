@@ -31,3 +31,22 @@ content-type: application/json
 ### Redirect
 GET  http://localhost:5000/basis/redirect HTTP/1.1
 content-type: application/json
+
+
+### Error - new Error()
+GET  http://localhost:5000/error/unrecognized HTTP/1.1
+content-type: application/json
+
+
+### Error - new HttpException()
+GET  http://localhost:5000/error/httperror HTTP/1.1
+content-type: application/json
+
+
+### Error - new LowBatteryException()
+GET  http://localhost:5000/error/customerror HTTP/1.1
+content-type: application/json
+
+### Error - new Filter
+GET  http://localhost:5000/error/filtererror HTTP/1.1
+content-type: application/json
