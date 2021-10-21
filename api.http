@@ -50,3 +50,8 @@ content-type: application/json
 ### Error - new Filter
 GET  http://localhost:5000/error/filtererror HTTP/1.1
 content-type: application/json
+
+
+### Pipe - ParseIntPipe
+GET  http://localhost:5000/pipe/p/nonumber HTTP/1.1
+content-type: application/json

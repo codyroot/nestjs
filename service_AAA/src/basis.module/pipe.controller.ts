@@ -1,8 +1,9 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Param, ParseIntPipe } from "@nestjs/common";
 
 @Controller("/pipe")
 export class PipeController {
-    @Get()
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    pipe() {}
+    @Get("/p/:id")
+    async pipeInt(@Param("id", ParseIntPipe) id: number) {
+        return id;
+    }
 }
