@@ -5,8 +5,8 @@ import {
     HttpStatus,
     UseFilters,
 } from "@nestjs/common";
-import { LowBatteryException } from "../basis.module/low-battery.exception";
-import { OfflineExceptionFilter } from "../basis.module/offline-exception.filter";
+import { LowBatteryException } from "./low-battery.exception";
+import { OfflineExceptionFilter } from "./offline-exception.filter";
 
 @Controller("/error")
 export class ErrorController {
