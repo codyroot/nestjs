@@ -5,13 +5,13 @@ import {
     HttpStatus,
     UseFilters,
 } from "@nestjs/common";
-import { BasisService } from "./basis.service";
-import { LowBatteryException } from "./low-battery.exception";
-import { OfflineExceptionFilter } from "./offline-exception.filter";
+import { LowBatteryException } from "../basis.module/low-battery.exception";
+import { OfflineExceptionFilter } from "../basis.module/offline-exception.filter";
 
 @Controller("/error")
 export class ErrorController {
-    constructor(private readonly service: BasisService) {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    constructor() {}
 
     @Get("/unrecognized")
     throwUnrecognized(): void {

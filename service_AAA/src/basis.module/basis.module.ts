@@ -6,13 +6,11 @@ import {
 import { BasisController } from "./basis.controller";
 import { BasisService } from "./basis.service";
 import { BasisStore } from "./basis.store";
-import { ErrorController } from "./error.controller";
-import { PipeController } from "./pipe.controller";
 
 @Module({
     imports: [],
     exports: [],
-    controllers: [BasisController, ErrorController, PipeController],
+    controllers: [BasisController],
     providers: [BasisService, BasisStore],
 })
 export class BasisModule implements NestModule {

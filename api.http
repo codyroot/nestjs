@@ -32,6 +32,7 @@ content-type: application/json
 GET  http://localhost:5000/basis/redirect HTTP/1.1
 content-type: application/json
 
+# Error -------------------------------------------------
 
 ### Error - new Error()
 GET  http://localhost:5000/error/unrecognized HTTP/1.1
@@ -51,6 +52,8 @@ content-type: application/json
 GET  http://localhost:5000/error/filtererror HTTP/1.1
 content-type: application/json
 
+
+# Pipe -------------------------------------------------
 
 ### Pipe - ParseIntPipe
 GET  http://localhost:5000/pipe/p/nonumber HTTP/1.1
