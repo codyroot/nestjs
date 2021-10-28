@@ -1,1 +1,1 @@
-export const project = "aaaaein TS Projekt!";
+export const project = "Q";
