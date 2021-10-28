@@ -1,0 +1,1 @@
+export const project = "aaaaein TS Projekt!";

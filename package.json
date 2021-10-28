@@ -1,0 +1,8 @@
+{
+    "private":true,
+    "name":"@blubb/mono",
+    "workspaces": [
+        "service_AAA",
+        "tsproject"
+    ]
+}

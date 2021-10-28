@@ -1,3 +1,4 @@
+import { project } from "@blubb/tsproject";
 import {
     Body,
     Controller,
@@ -16,6 +17,7 @@ import { Response } from "express";
 import { IncomingHttpHeaders } from "http";
 import { Car, CreateCarRequest } from "../models/car";
 import { BasisService } from "./basis.service";
+// import { project } from "@blubb/tsproject";
 
 @Controller("/basis")
 export class BasisController {
@@ -28,6 +30,8 @@ export class BasisController {
         console.log(headers);
         console.log(headers["user-agent"]);
         console.log(headers["yope"]);
+
+        console.log(project);
 
         return this.service.getCar();
     }

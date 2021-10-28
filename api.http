@@ -1,7 +1,7 @@
 ### GET
 GET http://localhost:5000/basis HTTP/1.1
 yope: myYope
-hurra: hip
+hurra: hip 
 
 
 ### GET async
