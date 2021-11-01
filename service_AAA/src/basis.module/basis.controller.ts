@@ -1,4 +1,3 @@
-// import { project } from "@blubb/tsproject";
 import { project } from "@blubb/tsproject";
 import {
     Body,
@@ -31,7 +30,7 @@ export class BasisController {
         console.log(headers["user-agent"]);
         console.log(headers["yope"]);
 
-        console.log(project + "--asd---");
+        console.log(project + "!!!");
 
         return this.service.getCar();
     }

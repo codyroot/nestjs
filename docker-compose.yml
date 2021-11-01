@@ -1,0 +1,13 @@
+version: "3"
+services:
+  service_aaa:
+    build: ./
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/usr/src/app
+      - all_modules2:/usr/src/app/node_modules
+
+
+volumes:
+  all_modules2:
