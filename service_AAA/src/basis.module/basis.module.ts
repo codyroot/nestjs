@@ -6,9 +6,15 @@ import {
 import { BasisController } from "./basis.controller";
 import { BasisService } from "./basis.service";
 import { BasisStore } from "./basis.store";
+import { ConfigModule } from "../dynamic.config.module/config.module";
+import { CONFIG_OPTIONS } from "../dynamic.config.module/config.options";
 
 @Module({
-    imports: [],
+    imports: [
+        ConfigModule.register({
+            type: CONFIG_OPTIONS.PROD,
+        }),
+    ],
     exports: [],
     controllers: [BasisController],
     providers: [BasisService, BasisStore],

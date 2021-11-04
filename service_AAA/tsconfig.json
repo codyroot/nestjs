@@ -4,5 +4,11 @@
     "outDir": "./dist",
     "baseUrl": ".",
   },
-  "exclude": ["test/*"]
+  "include": ["src/**.ts"],
+  "exclude": ["test/*"],
+  "references": [
+    {
+      "path": "../tsproject"
+    }
+  ]
 }

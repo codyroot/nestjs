@@ -1,1 +1,1 @@
-export const project = "uuuu";
+export const project = "TSPROJECT";

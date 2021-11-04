@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { LogService } from "../log.module/log.service";
+import { LogService } from "../dynamic.config.module/log.service";
 import { Car } from "../models/car";
 import { BasisStore } from "./basis.store";
 
@@ -9,7 +9,7 @@ export class BasisService {
 
     getCar(): Car {
         this.store.save();
-        this.log.log();
+        this.log.log("SAVE");
 
         return {
             id: "1",
