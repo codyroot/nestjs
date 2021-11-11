@@ -1,7 +1,7 @@
 ### GET
 GET http://localhost:5000/basis HTTP/1.1
 yope: myYope
-hurra: hip 
+hurra: hip
 
 
 ### GET async
@@ -36,6 +36,10 @@ content-type: application/json
 
 ### Error - new Error()
 GET  http://localhost:5000/error/unrecognized HTTP/1.1
+content-type: application/json
+
+### Error - new Error() - Catch
+GET  http://localhost:5000/error/unrecognized-catch HTTP/1.1
 content-type: application/json
 
 

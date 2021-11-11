@@ -7,6 +7,7 @@ import {
 } from "@nestjs/common";
 import { LowBatteryException } from "./low-battery.exception";
 import { OfflineExceptionFilter } from "./offline-exception.filter";
+import { AllExceptionFilter } from "./all-exception.filter";
 
 @Controller("/error")
 export class ErrorController {
@@ -16,6 +17,12 @@ export class ErrorController {
     @Get("/unrecognized")
     throwUnrecognized(): void {
         throw new Error("Ein Fehler kommt");
+    }
+
+    @Get("/unrecognized-catch")
+    @UseFilters(AllExceptionFilter)
+    throwUnrecognizedCatch(): void {
+        throw new Error("Ein Fehler kommt  und ist catched");
     }
 
     @Get("/httperror")
