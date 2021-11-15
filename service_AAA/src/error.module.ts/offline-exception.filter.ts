@@ -19,10 +19,11 @@ export class OfflineExceptionFilter implements ExceptionFilter {
         const status = exception.getStatus();
 
         response.status(status).json({
-            statusCode: status,
+            httpCode: status,
             timestamp: new Date().toISOString(),
-            path: request.url,
+            errorPath: request.url,
             msg: exception.message,
+            fromCatch: true,
         });
     }
 }
