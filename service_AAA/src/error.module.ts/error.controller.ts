@@ -3,11 +3,12 @@ import {
     Get,
     HttpException,
     HttpStatus,
-    UseFilters,
+    UseFilters
 } from "@nestjs/common";
+import { AllExceptionFilter } from "./all-exception.filter";
+import { InheritanceError } from "./inheritance-exception.filter";
 import { LowBatteryException } from "./low-battery.exception";
 import { OfflineExceptionFilter } from "./offline-exception.filter";
-import { AllExceptionFilter } from "./all-exception.filter";
 
 @Controller("/error")
 export class ErrorController {
@@ -40,6 +41,15 @@ export class ErrorController {
     @Get("/customerror")
     throwCustom(): void {
         throw new LowBatteryException("wenig saft im Akku");
+    }
+
+    @Get("/inheritanceerror")
+    @UseFilters(InheritanceError)
+    inheritanceException(): void {
+        throw new HttpException(
+            "Error durch Vererbung!!!",
+            HttpStatus.FAILED_DEPENDENCY,
+        );
     }
 
     @Get("/filtererror")

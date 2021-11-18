@@ -47,6 +47,10 @@ content-type: application/json
 GET  http://localhost:5000/error/httperror HTTP/1.1
 content-type: application/json
 
+### Error - From Nest Inheritance
+GET  http://localhost:5000/error/inheritanceerror HTTP/1.1
+content-type: application/json
+
 
 ### Error - new LowBatteryException()
 GET  http://localhost:5000/error/customerror HTTP/1.1
