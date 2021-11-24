@@ -15,7 +15,7 @@ import {
 } from "@nestjs/common";
 import { Response } from "express";
 import { IncomingHttpHeaders } from "http";
-import { Car, CreateCarRequest } from "../models/car";
+import { CarDatabaseDto, CreateCarRequest } from "../models/car";
 import { BasisService } from "./basis.service";
 
 @Controller("/basis")
@@ -25,7 +25,7 @@ export class BasisController {
     @Get()
     @HttpCode(HttpStatus.OK)
     @Header("bro", "da")
-    getCar(@Headers() headers: IncomingHttpHeaders): Car {
+    getCar(@Headers() headers: IncomingHttpHeaders): CarDatabaseDto {
         console.log(headers);
         console.log(headers["user-agent"]);
         console.log(headers["yope"]);
@@ -36,7 +36,7 @@ export class BasisController {
     }
 
     @Get("/car/:id")
-    getCarId(@Param("id") id: string): Car {
+    getCarId(@Param("id") id: string): CarDatabaseDto {
         return {
             ...this.service.getCar(),
             id,
@@ -45,11 +45,12 @@ export class BasisController {
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
-    createCar(@Body() car: CreateCarRequest): Car {
+    createCar(@Body() car: CreateCarRequest): CarDatabaseDto {
         return {
             id: "1",
             name: car.name,
             ps: car.ps,
+            type: "PHEV",
         };
     }
 
@@ -67,7 +68,7 @@ export class BasisController {
     }
 
     @Get("/async")
-    async getAsync(): Promise<Car> {
+    async getAsync(): Promise<CarDatabaseDto> {
         return Promise.resolve(this.service.getCar());
     }
 }

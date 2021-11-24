@@ -1,18 +1,17 @@
 import {
+    Body,
     Controller,
     Get,
+    HttpCode,
     HttpStatus,
     Param,
     ParseIntPipe,
     Post,
     UseFilters,
 } from "@nestjs/common";
+import { CreateCarRequestDto, CreateCarRequest } from '../models/car';
+import { BevPipe } from "./bev.pipe";
 import { PipeExceptionFilter } from "./pipe-exception.filter";
-
-class CarDto {
-    name: string;
-    type: "BEV" | "PHEV";
-}
 
 @Controller("/pipe")
 export class PipeController {
@@ -35,6 +34,12 @@ export class PipeController {
         return id;
     }
 
-    @Post("/body")
-    async pipeBody() {}
+    @Post("/body/nobev")
+    @HttpCode(HttpStatus.OK)
+    async pipeBody(@Body(BevPipe) car: CreateCarRequestDto) {
+        return {
+            ...car,
+            id: 1007,
+        };
+    }
 }
