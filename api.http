@@ -30,39 +30,42 @@ content-type: application/json
 
 ### Redirect
 GET  http://localhost:5000/basis/redirect HTTP/1.1
-content-type: application/json
 
 # Error -------------------------------------------------
 
 ### Error - new Error()
 GET  http://localhost:5000/error/unrecognized HTTP/1.1
-content-type: application/json
 
 ### Error - new Error() - Catch
 GET  http://localhost:5000/error/unrecognized-catch HTTP/1.1
-content-type: application/json
 
 
 ### Error - new HttpException()
 GET  http://localhost:5000/error/httperror HTTP/1.1
-content-type: application/json
 
 ### Error - From Nest Inheritance
 GET  http://localhost:5000/error/inheritanceerror HTTP/1.1
-content-type: application/json
-
 
 ### Error - new LowBatteryException()
 GET  http://localhost:5000/error/customerror HTTP/1.1
-content-type: application/json
 
 ### Error - new Filter
 GET  http://localhost:5000/error/filtererror HTTP/1.1
-content-type: application/json
-
 
 # Pipe -------------------------------------------------
 
 ### Pipe - ParseIntPipe
 GET  http://localhost:5000/pipe/p/nonumber HTTP/1.1
 content-type: application/json
+
+### Pipe - CustomError pipe
+GET http://localhost:5000/pipe/customerror/nonumber HTTP/1.1
+
+### Pipe - Custom pipe
+POST http://localhost:5000/pipe/body/nobev HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Trabbi 701",
+    "type": "PEV"
+}
