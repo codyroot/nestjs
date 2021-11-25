@@ -10,6 +10,7 @@ import {
     Query,
     UseFilters,
     UsePipes,
+    ValidationPipe,
 } from "@nestjs/common";
 import {
     CreateCarRequestClassValidatorDto,
@@ -82,13 +83,28 @@ export class PipeController {
     }
 
     @Post("/body-from-class-validator/no-ps")
-    // @UsePipes(BevClassValidatorPipe)
+    @UsePipes(BevClassValidatorPipe)
     async pipeBodyFromClassValidator(
         @Body() car: CreateCarRequestClassValidatorDto,
     ): Promise<ICarDatabaseDto> {
         return {
             ...car,
             id: "1007-004",
+        };
+    }
+
+    @Post("/body-from-class-validator-with-built-in-validation")
+    @UsePipes(
+        new ValidationPipe({
+            errorHttpStatusCode: HttpStatus.I_AM_A_TEAPOT,
+        }),
+    )
+    async pipeValidation(
+        @Body() car: CreateCarRequestClassValidatorDto,
+    ): Promise<ICarDatabaseDto> {
+        return {
+            ...car,
+            id: "1007-005",
         };
     }
 }

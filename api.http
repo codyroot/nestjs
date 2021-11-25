@@ -99,3 +99,13 @@ content-type: application/json
     "type": "BEV",
     "ps": "000012"
 }
+
+### Pipe - Custom pipe using built in ValidationPipe and class validator
+POST http://localhost:5000/pipe/body-from-class-validator-with-built-in-validation HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Trabbi 701",
+    "type": "NO enum value",
+    "ps": 200
+}

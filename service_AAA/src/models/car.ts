@@ -32,6 +32,6 @@ export class CreateCarRequestClassValidatorDto implements CreateCarRequest {
     @IsInt()
     ps: number;
 
-    @IsEnum(FuelType, { each: true })
+    @IsEnum(FuelType)
     type: FuelType;
 }

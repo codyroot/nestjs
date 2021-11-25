@@ -14,19 +14,16 @@ export class BevClassValidatorPipe implements PipeTransform<any> {
         value: CreateCarRequestClassValidatorDto,
         { metatype }: ArgumentMetadata,
     ) {
-        
-        console.log(metatype);
-
         if (!metatype || !this.toValidate(metatype)) {
             return value;
         }
         const object = plainToClass(metatype, value);
         const errors = await validate(object);
 
-        console.log(errors);
+        console.log(errors[0]);
 
         if (errors.length > 0) {
-            throw new BadRequestException(errors);
+            throw new BadRequestException(errors[0].constraints.isInt);
         }
         return value;
     }
