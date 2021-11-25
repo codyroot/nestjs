@@ -1,25 +1,37 @@
-interface BasicCar {
-    name: string;
-    ps: number;
-    type: "BEV" | "PHEV" | "FOSSIL";
+import { IsEnum, IsInt, IsString } from "class-validator";
+
+export enum FuelType {
+    BEV = "BEV",
+    PHEV = "PHEV",
+    FOSSIL = "FOSSIL",
 }
 
-export interface CarDatabaseDto extends BasicCar {
+interface IBasicCar {
+    name: string;
+    ps: number;
+    type: FuelType;
+}
+
+export interface ICarDatabaseDto extends IBasicCar {
     id: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface CreateCarRequest extends BasicCar {}
+export interface CreateCarRequest extends IBasicCar {}
 
-export class CreateCarRequestDto implements BasicCar {
-    type: "BEV" | "PHEV" | "FOSSIL";
+export class CreateCarRequestDto implements IBasicCar {
+    type: FuelType;
     ps: number;
     name: string;
 }
 
-export class CarDatabaseDto
-    extends CreateCarRequestDto
-    implements CarDatabaseDto
-{
-    id: string;
+export class CreateCarRequestClassValidatorDto implements CreateCarRequest {
+    @IsString()
+    name: string;
+
+    @IsInt()
+    ps: number;
+
+    @IsEnum(FuelType, { each: true })
+    type: FuelType;
 }

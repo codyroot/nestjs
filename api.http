@@ -55,17 +55,47 @@ GET  http://localhost:5000/error/filtererror HTTP/1.1
 # Pipe -------------------------------------------------
 
 ### Pipe - ParseIntPipe
-GET  http://localhost:5000/pipe/p/nonumber HTTP/1.1
-content-type: application/json
+GET http://localhost:5000/pipe/p/nonumber HTTP/1.1
+
+### Pipe - Default value pipe
+GET http://localhost:5000/pipe/defaultvalue?bonus=true HTTP/1.1
 
 ### Pipe - CustomError pipe
 GET http://localhost:5000/pipe/customerror/nonumber HTTP/1.1
 
-### Pipe - Custom pipe
-POST http://localhost:5000/pipe/body/nobev HTTP/1.1
+### Pipe - Custom pipe using method param
+POST http://localhost:5000/pipe/body-from-param/nobev HTTP/1.1
 content-type: application/json
 
 {
     "name": "Trabbi 701",
-    "type": "PEV"
+    "type": "PHEV"
+}
+
+### Pipe - Custom pipe using method decorator
+POST http://localhost:5000/pipe/body-from-method-decorator/nobev HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Trabbi 701",
+    "type": "PHEV"
+}
+
+### Pipe - Custom pipe using class decorator
+POST http://localhost:5000/pipe/body-from-class-decorator/nobev HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Trabbi 701",
+    "type": "PHEV"
+}
+
+### Pipe - Custom pipe using class validator
+POST http://localhost:5000/pipe/body-from-class-validator/no-ps HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Trabbi 701",
+    "type": "BEV",
+    "ps": "000012"
 }

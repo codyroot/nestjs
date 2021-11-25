@@ -15,7 +15,7 @@ import {
 } from "@nestjs/common";
 import { Response } from "express";
 import { IncomingHttpHeaders } from "http";
-import { CarDatabaseDto, CreateCarRequest } from "../models/car";
+import { ICarDatabaseDto, CreateCarRequest, FuelType } from "../models/car";
 import { BasisService } from "./basis.service";
 
 @Controller("/basis")
@@ -25,7 +25,7 @@ export class BasisController {
     @Get()
     @HttpCode(HttpStatus.OK)
     @Header("bro", "da")
-    getCar(@Headers() headers: IncomingHttpHeaders): CarDatabaseDto {
+    getCar(@Headers() headers: IncomingHttpHeaders): ICarDatabaseDto {
         console.log(headers);
         console.log(headers["user-agent"]);
         console.log(headers["yope"]);
@@ -36,7 +36,7 @@ export class BasisController {
     }
 
     @Get("/car/:id")
-    getCarId(@Param("id") id: string): CarDatabaseDto {
+    getCarId(@Param("id") id: string): ICarDatabaseDto {
         return {
             ...this.service.getCar(),
             id,
@@ -45,12 +45,12 @@ export class BasisController {
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
-    createCar(@Body() car: CreateCarRequest): CarDatabaseDto {
+    createCar(@Body() car: CreateCarRequest): ICarDatabaseDto {
         return {
             id: "1",
             name: car.name,
             ps: car.ps,
-            type: "PHEV",
+            type: FuelType.PHEV,
         };
     }
 
@@ -68,7 +68,7 @@ export class BasisController {
     }
 
     @Get("/async")
-    async getAsync(): Promise<CarDatabaseDto> {
+    async getAsync(): Promise<ICarDatabaseDto> {
         return Promise.resolve(this.service.getCar());
     }
 }
