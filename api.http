@@ -130,3 +130,6 @@ x-user: Taxy
 ### Guard - Rolle mit custom decorator
 GET http://localhost:5000/guard/role/custom-decorator HTTP/1.1
 x-user: Taxy
+
+### Interceptor -
+GET http://localhost:5000/interceptor/ HTTP/1.1
