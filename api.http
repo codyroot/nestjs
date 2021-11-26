@@ -131,6 +131,8 @@ x-user: Taxy
 GET http://localhost:5000/guard/role/custom-decorator HTTP/1.1
 x-user: Taxy
 
+
+#Interceptor --------------------------------------------------------
 ### Interceptor - log
 
 GET http://localhost:5000/interceptor/log HTTP/1.1
@@ -140,3 +142,26 @@ GET http://localhost:5000/interceptor/error HTTP/1.1
 
 ### Interceptor - Timeout
 GET http://localhost:5000/interceptor/timeout HTTP/1.1
+
+
+#Custom Decorator --------------------------------------------------------
+
+### Customdecorator - Create car
+POST http://localhost:5000/custom-decorator/car HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Trabbi 701",
+    "type": "BEV",
+    "ps": "000012"
+}
+
+### Customdecorator - Car property
+POST http://localhost:5000/custom-decorator/car-property HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Trabbi 701",
+    "type": "BEV",
+    "ps": 250
+}
