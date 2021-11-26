@@ -109,3 +109,24 @@ content-type: application/json
     "type": "NO enum value",
     "ps": 200
 }
+
+# Guard --------------------------------------------------------
+### Guard - Ist möglich
+GET http://localhost:5000/guard/auth HTTP/1.1
+x-token: 007
+
+### Guard - Ist NICHT möglich
+GET http://localhost:5000/guard/auth HTTP/1.1
+x-token: 000
+
+### Guard - Rolle mit SetMetaData
+GET http://localhost:5000/guard/role/set-meta-data HTTP/1.1
+x-user: James
+
+### Guard - Rolle mit SetMetaData
+GET http://localhost:5000/guard/role/set-meta-data HTTP/1.1
+x-user: Taxy
+
+### Guard - Rolle mit custom decorator
+GET http://localhost:5000/guard/role/custom-decorator HTTP/1.1
+x-user: Taxy

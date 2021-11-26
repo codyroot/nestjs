@@ -23,7 +23,7 @@ export class BevClassValidatorPipe implements PipeTransform<any> {
         console.log(errors[0]);
 
         if (errors.length > 0) {
-            throw new BadRequestException(errors[0].constraints.isInt);
+            throw new BadRequestException(errors[0].constraints!.isInt);
         }
         return value;
     }

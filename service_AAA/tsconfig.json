@@ -4,8 +4,12 @@
     "outDir": "./dist",
     "baseUrl": ".",
   },
-  "include": ["src/**/*"],
-  "exclude": ["test/*"],
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "test/*"
+  ],
   "references": [
     {
       "path": "../tsproject"
