@@ -165,3 +165,17 @@ content-type: application/json
     "type": "BEV",
     "ps": 250
 }
+
+#CustomProvider --------------------------------------------------------
+### CustomProvider - useValue
+GET http://localhost:5000/custom-provider/usevalue HTTP/1.1
+
+### CustomProvider - useValue token
+GET http://localhost:5000/custom-provider/usevalue-token HTTP/1.1
+
+### CustomProvider - useValue interface
+GET http://localhost:5000/custom-provider/usevalue-interface HTTP/1.1
+
+
+### CustomProvider - useClass
+GET http://localhost:5000/custom-provider/useclass HTTP/1.1
