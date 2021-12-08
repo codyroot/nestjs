@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { CustomProviderController } from "./custom-provider.controller";
 import { CustomProviderService } from "./custom-provider.service";
 import { BasicCar, ElectricCar, HybridCar } from "./custom-useclass";
+import { CarFactory } from "./custom-usefactory";
 import {
     customUseValue,
     customUseValueInterface,
@@ -29,6 +30,17 @@ import {
             provide: BasicCar,
             useClass: true ? ElectricCar : HybridCar,
             // useClass: false ? ElectricCar : HybridCar,
+        },
+        {
+            provide: CarFactory,
+            useFactory: (/*optionsProvider: OptionsProvider*/) => {
+                /*const options = optionsProvider.get();*/
+                // return CarFactory.newElectricCar();
+                return CarFactory.newHybridCar();
+            },
+            inject: [
+                /*OptionsProvider*/
+            ],
         },
     ],
 })

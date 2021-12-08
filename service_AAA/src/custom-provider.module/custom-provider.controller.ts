@@ -3,7 +3,8 @@ import {
     CustomProviderService,
     ICustomProviderService,
 } from "./custom-provider.service";
-import { BasicCar } from './custom-useclass';
+import { BasicCar } from "./custom-useclass";
+import { CarFactory } from "./custom-usefactory";
 import { INTERFACE_USE_VALUE, TOKEN_USE_VALUE } from "./custom-usevalue";
 
 @Controller("/custom-provider")
@@ -15,6 +16,7 @@ export class CustomProviderController {
         @Inject(INTERFACE_USE_VALUE)
         private serviceInterface: CustomProviderService,
         private car: BasicCar,
+        private carFactory: CarFactory,
     ) {}
 
     @Get("/usevalue")
@@ -35,5 +37,10 @@ export class CustomProviderController {
     @Get("/useclass")
     useClass(): string {
         return this.car.acc();
+    }
+
+    @Get("/usefactory")
+    useFactory(): string {
+        return this.carFactory.getType();
     }
 }
