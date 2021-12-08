@@ -101,7 +101,7 @@ content-type: application/json
 }
 
 ### Pipe - Custom pipe using built in ValidationPipe and class validator
-POST http://localhost:5000/pipe/body-from-class-validator-with-built-in-validation HTTP/1.1
+POST http://localhost:5000/pipe/body-from-class-validator-with-built-in-validation-no-enum HTTP/1.1
 content-type: application/json
 
 {
@@ -144,7 +144,7 @@ GET http://localhost:5000/interceptor/error HTTP/1.1
 GET http://localhost:5000/interceptor/timeout HTTP/1.1
 
 
-#Custom Decorator --------------------------------------------------------
+# Custom Decorator --------------------------------------------------------
 
 ### Customdecorator - Create car
 POST http://localhost:5000/custom-decorator/car HTTP/1.1

@@ -22,7 +22,7 @@ import { BevPipe } from "./bev.pipe";
 import { PipeExceptionFilter } from "./pipe-exception.filter";
 
 @Controller("/pipe")
-@UsePipes(BevPipe)
+// @UsePipes(BevPipe)
 export class PipeController {
     @Get("/p/:id")
     async pipeInt(@Param("id", ParseIntPipe) id: number) {
@@ -93,10 +93,10 @@ export class PipeController {
         };
     }
 
-    @Post("/body-from-class-validator-with-built-in-validation")
+    @Post("/body-from-class-validator-with-built-in-validation-no-enum")
     @UsePipes(
         new ValidationPipe({
-            errorHttpStatusCode: HttpStatus.I_AM_A_TEAPOT,
+            errorHttpStatusCode: HttpStatus.CONFLICT,
         }),
     )
     async pipeValidation(

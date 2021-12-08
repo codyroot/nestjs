@@ -6,7 +6,7 @@ import {
 } from "@nestjs/common";
 import { plainToClass } from "class-transformer";
 import { validate } from "class-validator";
-import { CreateCarRequestClassValidatorDto, FuelType } from "../models/car";
+import { CreateCarRequestClassValidatorDto } from "../models/car";
 
 @Injectable()
 export class BevClassValidatorPipe implements PipeTransform<any> {
