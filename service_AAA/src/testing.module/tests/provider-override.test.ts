@@ -1,10 +1,7 @@
 import { Test } from "@nestjs/testing";
-import { ModuleMocker } from "jest-mock";
 import { TestinServiceA } from "../testing-a.service";
 import { TestinServiceB } from "../testing-b.service";
 import { TestingController } from "../testing.controller";
-
-const moduleMocker = new ModuleMocker(global);
 
 describe("Provider Override Controller", () => {
     const result = "test-aaa";
@@ -13,17 +10,7 @@ describe("Provider Override Controller", () => {
     beforeEach(async () => {
         const moduleRef = await Test.createTestingModule({
             controllers: [TestingController],
-            providers: [
-                TestinServiceB,
-                {
-                    provide: TestinServiceA,
-                    useValue: {
-                        aaa() {
-                            return result;
-                        },
-                    },
-                },
-            ],
+            providers: [TestinServiceA, TestinServiceB],
         })
             .overrideProvider(TestinServiceA)
             .useValue({
