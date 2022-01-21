@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common";
 import { BasisModule } from "./basis.module/basis.module";
+import { CfgModule } from "./configuration.module/config.module";
 import { CustomDecoratorModule } from "./custom-decorator.module/custom-decorator.module";
 import { CustomProviderModule } from "./custom-provider.module/custom-provider.module";
 import { DatabaseModule } from "./database.module/database.module";
@@ -22,6 +23,7 @@ import { TestingModule } from "./testing.module/testing.module";
         DatabaseModule,
         LifecycleModule,
         TestingModule,
+        CfgModule,
     ],
     controllers: [],
     providers: [],

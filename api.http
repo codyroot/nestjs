@@ -182,3 +182,7 @@ GET http://localhost:5000/custom-provider/useclass HTTP/1.1
 
 ### CustomProvider - useFactory
 GET http://localhost:5000/custom-provider/usefactory HTTP/1.1
+
+#Config --------------------------------------------------------
+###
+GET http://localhost:5000/config/all HTTP/1.1
