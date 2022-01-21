@@ -5,7 +5,7 @@ import { TestingController } from "../testing.controller";
 
 const moduleMocker = new ModuleMocker(global);
 
-describe("CatsController", () => {
+describe("Automock Controller", () => {
     const result = "test-aaa";
     let testController: TestingController;
 
@@ -16,8 +16,7 @@ describe("CatsController", () => {
             .useMocker((token) => {
                 if (token === TestinServiceA) {
                     return { aaa: jest.fn().mockResolvedValue(result) };
-                }
-                if (typeof token === "function") {
+                } else if (typeof token === "function") {
                     const mockMetadata = moduleMocker.getMetadata(
                         token,
                     ) as MockFunctionMetadata<any, any>;

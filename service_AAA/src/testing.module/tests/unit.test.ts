@@ -3,7 +3,7 @@ import { TestinServiceA } from "../testing-a.service";
 import { TestinServiceB } from "../testing-b.service";
 import { TestingController } from "../testing.controller";
 
-describe("CatsController", () => {
+describe("Unit TestController", () => {
     let testController: TestingController;
     let servA: TestinServiceA;
     let servB: TestinServiceB;
@@ -25,7 +25,7 @@ describe("CatsController", () => {
 
             jest.spyOn(servA, "aaa").mockImplementation(() => result);
 
-            expect(await testController.getAAA()).toBe(result);
+            expect(testController.getAAA()).toBe(result);
         });
     });
 });
