@@ -18,7 +18,7 @@ import {
     ICarDatabaseDto,
 } from "../models/car";
 import { BevClassValidatorPipe } from "./bev-class-validator.pipe";
-import { CreateCarClassTransformerDto } from "./bev-class.transformer.pipe";
+import { CreateCarClassTransformerDto } from "./bev-class.transformer";
 import { BevPipe } from "./bev.pipe";
 import { PipeExceptionFilter } from "./pipe-exception.filter";
 
