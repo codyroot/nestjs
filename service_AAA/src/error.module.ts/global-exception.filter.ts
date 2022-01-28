@@ -22,6 +22,13 @@ export class GlobalExceptionFilter implements ExceptionFilter {
         const message =
             exception instanceof Error ? exception.message : "fehler...";
 
+        const reason =
+            exception instanceof HttpException
+                ? exception.getResponse()
+                : { message };
+
+        console.log((exception as any).response);
+
         const type =
             exception instanceof Error
                 ? (exception as unknown as FunctionConstructor).name
@@ -34,6 +41,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
             message: `GLOBAL: ${message}`,
             catchedFromGlobalError: true,
             type,
+            result: reason,
         });
     }
 }

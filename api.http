@@ -110,6 +110,16 @@ content-type: application/json
     "ps": 200
 }
 
+### Pipe - Class transformer pipe
+POST http://localhost:5000/pipe/body-from-class-transformer HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Trabbi 701",
+    "ps": 200,
+    "type": "null"
+}
+
 # Guard --------------------------------------------------------
 ### Guard - Ist möglich
 GET http://localhost:5000/guard/auth HTTP/1.1

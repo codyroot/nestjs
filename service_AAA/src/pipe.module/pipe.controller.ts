@@ -18,6 +18,7 @@ import {
     ICarDatabaseDto,
 } from "../models/car";
 import { BevClassValidatorPipe } from "./bev-class-validator.pipe";
+import { CreateCarClassTransformerDto } from "./bev-class.transformer.pipe";
 import { BevPipe } from "./bev.pipe";
 import { PipeExceptionFilter } from "./pipe-exception.filter";
 
@@ -106,5 +107,18 @@ export class PipeController {
             ...car,
             id: "1007-005",
         };
+    }
+
+    @Post("/body-from-class-transformer")
+    // NOTE: Dadurch wird class-transformer dto verwendet
+    // Das DTO muss zwingend eine Klasse sein
+    // transform true -> macht das car Object zur Klasse
+    @UsePipes(new ValidationPipe({ transform: true }))
+    async classTransformer(
+        @Body() car: CreateCarClassTransformerDto,
+    ): Promise<CreateCarClassTransformerDto> {
+        console.log(car);
+
+        return car;
     }
 }
