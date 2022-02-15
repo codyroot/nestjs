@@ -195,4 +195,9 @@ GET http://localhost:5000/custom-provider/usefactory HTTP/1.1
 
 #Config --------------------------------------------------------
 ###
-GET http://localhost:5000/config/all HTTP/1.1
+GET http://localhost:5000/config/all HTTP/1.1+
+
+
+#CustomProvider --------------------------------------------------------
+###
+GET http://localhost:5000/serialization HTTP/1.1+

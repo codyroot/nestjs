@@ -9,6 +9,7 @@ import { GuardModule } from "./guard.module/guard.module";
 import { InterceptorModule } from "./interceptor.module/interceptor.module";
 import { LifecycleModule } from "./life-cycle.module/life-cycle.module";
 import { PipeModule } from "./pipe.module/pipe.module";
+import { SerializationModule } from "./serialization.module/serialization.module";
 import { TestingModule } from "./testing.module/testing.module";
 
 @Module({
@@ -24,6 +25,7 @@ import { TestingModule } from "./testing.module/testing.module";
         LifecycleModule,
         TestingModule,
         CfgModule,
+        SerializationModule,
     ],
     controllers: [],
     providers: [],
