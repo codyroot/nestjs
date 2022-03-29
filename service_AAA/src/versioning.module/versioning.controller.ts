@@ -1,5 +1,7 @@
 import { Controller, Get, Version } from "@nestjs/common";
 
+// In der main.ts muss es gesetzt werden
+// Entweder URL, Header oder Media Type
 @Controller("/versioning")
 export class VersioningController {
     @Version("1")

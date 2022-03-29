@@ -209,6 +209,14 @@ GET http://localhost:5000/v1/versioning/url HTTP/1.1
 ### URL Version 2
 GET http://localhost:5000/v2/versioning/url HTTP/1.1
 
-### URL Version multiple
+### URL Version multiple v1
 GET http://localhost:5000/v1/versioning/multiple HTTP/1.1
+### URL Version multiple v2
 GET http://localhost:5000/v2/versioning/multiple HTTP/1.1
+
+
+# Scheduling --------------------------------------------------------
+### Start
+GET http://localhost:5000/scheduling/start HTTP/1.1
+### Stop
+GET http://localhost:5000/scheduling/stop HTTP/1.1

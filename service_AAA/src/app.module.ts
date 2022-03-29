@@ -9,6 +9,7 @@ import { GuardModule } from "./guard.module/guard.module";
 import { InterceptorModule } from "./interceptor.module/interceptor.module";
 import { LifecycleModule } from "./life-cycle.module/life-cycle.module";
 import { PipeModule } from "./pipe.module/pipe.module";
+import { SchedulingModule } from "./scheduling.module/scheduling.module";
 import { SerializationModule } from "./serialization.module/serialization.module";
 import { TestingModule } from "./testing.module/testing.module";
 import { VersioningModule } from "./versioning.module/versioning.module";
@@ -28,6 +29,7 @@ import { VersioningModule } from "./versioning.module/versioning.module";
         CfgModule,
         SerializationModule,
         VersioningModule,
+        SchedulingModule,
     ],
     controllers: [],
     providers: [],
