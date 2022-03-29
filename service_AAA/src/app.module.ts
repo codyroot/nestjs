@@ -11,6 +11,7 @@ import { LifecycleModule } from "./life-cycle.module/life-cycle.module";
 import { PipeModule } from "./pipe.module/pipe.module";
 import { SerializationModule } from "./serialization.module/serialization.module";
 import { TestingModule } from "./testing.module/testing.module";
+import { VersioningModule } from "./versioning.module/versioning.module";
 
 @Module({
     imports: [
@@ -26,6 +27,7 @@ import { TestingModule } from "./testing.module/testing.module";
         TestingModule,
         CfgModule,
         SerializationModule,
+        VersioningModule,
     ],
     controllers: [],
     providers: [],

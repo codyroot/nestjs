@@ -195,9 +195,20 @@ GET http://localhost:5000/custom-provider/usefactory HTTP/1.1
 
 #Config --------------------------------------------------------
 ###
-GET http://localhost:5000/config/all HTTP/1.1+
+GET http://localhost:5000/config/all HTTP/1.1
 
 
-#CustomProvider --------------------------------------------------------
+# Serialization --------------------------------------------------------
 ###
-GET http://localhost:5000/serialization HTTP/1.1+
+GET http://localhost:5000/serialization HTTP/1.1
+
+# Versioning --------------------------------------------------------
+### URL Version 1
+GET http://localhost:5000/v1/versioning/url HTTP/1.1
+
+### URL Version 2
+GET http://localhost:5000/v2/versioning/url HTTP/1.1
+
+### URL Version multiple
+GET http://localhost:5000/v1/versioning/multiple HTTP/1.1
+GET http://localhost:5000/v2/versioning/multiple HTTP/1.1
