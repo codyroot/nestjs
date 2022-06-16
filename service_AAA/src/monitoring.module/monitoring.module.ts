@@ -52,10 +52,10 @@ histogram.zero({ method: "POST" });
             path: "/metrics",
             defaultMetrics: {
                 enabled: false,
-                //     config: {
-                //         prefix: "blubb__",
-                //         labels: ["asd"],
-                //     },
+                config: {
+                    prefix: "blubb__",
+                    // labels: ["asd"],
+                },
             },
         }),
     ],
