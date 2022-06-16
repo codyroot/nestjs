@@ -8,6 +8,7 @@ import { ErrorModule } from "./error.module.ts/error.module";
 import { GuardModule } from "./guard.module/guard.module";
 import { InterceptorModule } from "./interceptor.module/interceptor.module";
 import { LifecycleModule } from "./life-cycle.module/life-cycle.module";
+import { MonitoringModule } from "./monitoring.module/monitoring.module";
 import { PipeModule } from "./pipe.module/pipe.module";
 import { SchedulingModule } from "./scheduling.module/scheduling.module";
 import { SerializationModule } from "./serialization.module/serialization.module";
@@ -30,6 +31,7 @@ import { VersioningModule } from "./versioning.module/versioning.module";
         SerializationModule,
         VersioningModule,
         SchedulingModule,
+        MonitoringModule,
     ],
     controllers: [],
     providers: [],
