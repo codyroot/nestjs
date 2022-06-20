@@ -225,3 +225,4 @@ GET http://localhost:5000/scheduling/stop HTTP/1.1
 # Monitoring --------------------------------------------------------
 ### Metrics
 GET http://localhost:5000/metrics HTTP/1.1
+GET http://localhost:5000/metrics-example/slow HTTP/1.1
