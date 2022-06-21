@@ -226,3 +226,7 @@ GET http://localhost:5000/scheduling/stop HTTP/1.1
 ### Metrics
 GET http://localhost:5000/metrics HTTP/1.1
 GET http://localhost:5000/metrics-example/slow HTTP/1.1
+
+# Queue --------------------------------------------------------
+### Sport Queue
+GET http://localhost:5000/queue/sport HTTP/1.1

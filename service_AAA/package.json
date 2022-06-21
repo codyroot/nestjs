@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@blubb/tsproject": "1.0.0",
+    "@nestjs/bull": "^0.5.5",
     "@nestjs/common": "^8.2.3",
     "@nestjs/config": "^1.1.6",
     "@nestjs/core": "^8.2.3",
@@ -30,7 +31,9 @@
     "@nestjs/platform-socket.io": "^8.2.3",
     "@nestjs/schedule": "^1.1.0",
     "@nestjs/websockets": "^8.2.3",
+    "@types/bull": "^3.15.8",
     "@willsoto/nestjs-prometheus": "^4.6.0",
+    "bull": "^4.8.4",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "cron": "^1.8.2",
