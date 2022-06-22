@@ -6,10 +6,8 @@ import { Queue } from "bull";
 export class SportProducer {
     constructor(@InjectQueue("sport") private sportQueue: Queue) {
         this.sportQueue.on("completed", async (job) => {
-            console.log(job.progress());
-            console.log(job.name);
-
             console.log("completed", await job.getState());
+            console.log(job.returnvalue);
         });
         this.sportQueue.on("failed", async (job) => {
             console.log("failed", await job.getState());
@@ -20,15 +18,16 @@ export class SportProducer {
     }
 
     public async sportQueueAdd() {
-        await this.sportQueue.pause();
+        await this.sportQueue.clean(0, "failed");
+        await this.sportQueue.clean(0, "completed");
 
         return this.sportQueue.add(
             { sieg: false },
             {
-                // jobId: 551,
-                delay: 1_000,
-                // attempts: 0,
-                // backoff: 0,
+                // jobId: 77,
+                delay: 2_000,
+                attempts: 3,
+                // backoff: 5_000,
                 removeOnComplete: true,
                 removeOnFail: true,
                 // timeout: 10_000,
